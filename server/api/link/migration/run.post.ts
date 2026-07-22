@@ -119,7 +119,7 @@ export default eventHandler(async (event): Promise<LinkMigrationRunResult> => {
   if (run.status === 'completed')
     return completedResult()
 
-  const page = await KV.list({ prefix: 'link:', limit: 10, cursor: run.expectedCursor ?? undefined })
+  const page = await KV.list({ prefix: 'link:', limit: 40, cursor: run.expectedCursor ?? undefined })
   const result: LinkMigrationRunResult = {
     completed: false,
     list_complete: false,
